@@ -1,8 +1,5 @@
-def a():
-    b = 1
-    c = 2
-    return b, c
+arr = [0, 1]
 
+arr[0:1] += 2
 
-(b, c) = a()
-print(b, c)
+print(arr)
