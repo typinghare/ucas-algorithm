@@ -8,20 +8,17 @@
 
 
 # ---------- [ code ] ----------
-import math
-
-
-def get_position(arr, target, l, r):
+def solve(arr, target, l, r):
     # Conquer
     if l == r:
         # if the only one element in array equals to target, (0, 0) is returned,
         # (-1, -1) is returned otherwise.
         return (0, 0) if arr[l] == target else (-1, -1)
 
-    # Divide
-    m = math.floor((l + r) / 2)  # middle index
-    left = get_position(arr, target, l, m) if arr[m] >= target else (-1, -1)
-    right = get_position(arr, target, m + 1, r)
+    # Divides
+    m = (l + r) >> 2  # middle index
+    left = solve(arr, target, l, m) if arr[m] >= target else (-1, -1)
+    right = solve(arr, target, m + 1, r)
 
     # Combine
     deviation = m - l + 1
@@ -36,5 +33,5 @@ def get_position(arr, target, l, r):
 
 # ---------- [ test ] ----------
 arr = [5, 7, 7, 8, 8, 10]
-result = get_position(arr, 8, 0, len(arr) - 1)
+result = solve(arr, 8, 0, len(arr) - 1)
 print(result)

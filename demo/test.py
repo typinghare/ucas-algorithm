@@ -1,5 +1,3 @@
-arr = [0, 1]
 
-arr[0:1] += 2
-
-print(arr)
+for i in range(5, 0, -1):
+    print(i)
