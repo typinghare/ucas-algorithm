@@ -32,6 +32,6 @@ def solve(arr, target, l, r):
 
 
 # ---------- [ test ] ----------
-arr = [5, 7, 7, 8, 8, 10]
+arr = [5]
 result = solve(arr, 8, 0, len(arr) - 1)
 print(result)

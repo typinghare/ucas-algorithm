@@ -32,12 +32,10 @@ def solve(arr: list, l: int, r: int) -> int:
         left_sum += arr[i]
         if left_sum > left_max_sum:
             left_max_sum = left_sum
-        pass
     for i in range(mid + 2, r):
         right_sum += arr[i]
         if right_sum > right_max_sum:
             right_max_sum = right_sum
-        pass
 
     return max(left_solution, right_solution, left_max_sum + right_max_sum)
 

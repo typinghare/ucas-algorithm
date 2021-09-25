@@ -2,7 +2,7 @@
 
 # ---------- [ subject ] ----------
 # Given an integer array nums and an integer k, please return the k-th largest element
-# in the array. Your algorithm's runtime complexity must be in the order of O(nlogn),
+# in the array. Your algorithm's runtime complexity must be in the order of O(n),
 # prove the correctness and analyse the complexity. (k is much smaller than n, n is the
 # length of the array.)
 
@@ -38,32 +38,33 @@ def get_k_th_largest(arr: list, ordinal: int):
             return smallest
 
 
-def find_target_element(arr: list, ordinal: int) -> list:
-    l = len(arr)
-    if len(arr) < 2 * ordinal:
-        # not enough to divide, return a set of elements, each of which is less than the
-        # k-th largest number in the list
-        pns = []  # possible numbers set
-        for i in range(0, len(arr)):
-            arr.sort()  # ascending sort
-            return arr[0:ordinal]
-
-    m = math.ceil(l / 2)
-    right_pns = find_target_element(arr[0:m], ordinal)
-    left_pns = find_target_element(arr[m:l], ordinal)
-
-    # combine
-    new_arr = []
-    i = 0
-    j = 0
-    for k in range(0, 4):
-        if left_pns[i] > right_pns[j]:
-            new_arr.append(right_pns[j])
-            j += 1
-        else:
-            new_arr.append(left_pns[i])
-            i += 1
-    return new_arr
+# trash
+# def find_target_element(arr: list, ordinal: int) -> list:
+#     l = len(arr)
+#     if len(arr) < 2 * ordinal:
+#         # not enough to divide, return a set of elements, each of which is less than the
+#         # k-th largest number in the list
+#         pns = []  # possible numbers set
+#         for i in range(0, len(arr)):
+#             arr.sort()  # ascending sort
+#             return arr[0:ordinal]
+#
+#     m = math.ceil(l / 2)
+#     right_pns = find_target_element(arr[0:m], ordinal)
+#     left_pns = find_target_element(arr[m:l], ordinal)
+#
+#     # combine
+#     new_arr = []
+#     i = 0
+#     j = 0
+#     for k in range(0, 4):
+#         if left_pns[i] > right_pns[j]:
+#             new_arr.append(right_pns[j])
+#             j += 1
+#         else:
+#             new_arr.append(left_pns[i])
+#             i += 1
+#     return new_arr
 
 
 # ---------- [ test ] ----------

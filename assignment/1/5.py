@@ -9,19 +9,35 @@
 
 
 # ---------- [ code ] ----------
-def solve(n):
+# def solve(n):
+#     # Conquer
+#     if n <= 3:
+#         return 1
+#
+#     # Divide and Combine
+#     ans = 0
+#     for i in range(2, n):
+#         ans += solve(i) * solve(n - i + 1)
+#     return ans
+def solve(n, cache: dict):
     # Conquer
-    if n <= 3:
-        return 1
+    if n in cache:
+        return cache[n]
 
     # Divide and Combine
     ans = 0
-    for i in range(2, n):
-        ans += solve(i) * solve(n - i + 1)
+    mid = (n >> 1) + 1
+    for i in range(2, mid):
+        ans += solve(i, cache) * solve(n - i + 1, cache)
+    ans <<= 1
+    if n % 2 == 1:
+        # n is odd number
+        ans += solve(mid, cache) ** 2
+    cache[n] = ans
     return ans
 
 
 # ---------- [ test ] ----------
-N = 6
-result = solve(N)
+N = 7
+result = solve(N, {2: 1, 3: 1})
 print(result)
