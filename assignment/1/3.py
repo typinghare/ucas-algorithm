@@ -7,13 +7,6 @@
 
 
 # ---------- [ code ] ----------
-import math
-
-
-def get_sum(arr: list, l: int, r: int):
-    return sum(arr[l:r + 1])
-
-
 def solve(arr: list, l: int, r: int) -> int:
     # Conquer
     if l == r:
@@ -26,12 +19,14 @@ def solve(arr: list, l: int, r: int) -> int:
 
     # Combine
     # a probability that the sub-array go across division
+    # [left]
     left_sum = left_max_sum = arr[mid]
-    right_sum = right_max_sum = arr[mid + 1]
     for i in range(mid - 1, l, -1):
         left_sum += arr[i]
         if left_sum > left_max_sum:
             left_max_sum = left_sum
+    # [right]
+    right_sum = right_max_sum = arr[mid + 1]
     for i in range(mid + 2, r):
         right_sum += arr[i]
         if right_sum > right_max_sum:
