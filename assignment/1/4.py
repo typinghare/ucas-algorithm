@@ -33,6 +33,7 @@
 def solve(arr, target, l, r):
     # Conquer
     if l == r:
+        # leaf node position
         return (r, r) if arr[r] == target else (-1, -1)
 
     # Divides
