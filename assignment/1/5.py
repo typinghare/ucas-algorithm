@@ -19,9 +19,12 @@
 #     for i in range(2, n):
 #         ans += solve(i) * solve(n - i + 1)
 #     return ans
-def solve(n, cache: dict):
+def solve(n, cache=None):
+    if cache is None:
+        cache = [0, 0, 1, 1] + [0] * (n - 3)
+
     # Conquer
-    if n in cache:
+    if cache[n] > 0:
         return cache[n]
 
     # Divide and Combine
@@ -39,5 +42,5 @@ def solve(n, cache: dict):
 
 # ---------- [ test ] ----------
 N = 7
-result = solve(N, {2: 1, 3: 1})
+result = solve(N)
 print(result)
