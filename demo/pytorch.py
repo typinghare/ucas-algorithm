@@ -1,4 +1,0 @@
-
-import pytorch;
-
-pytorch.zeros()

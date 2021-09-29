@@ -19,6 +19,7 @@
 #     for i in range(2, n):
 #         ans += solve(i) * solve(n - i + 1)
 #     return ans
+
 def solve(n, cache=None):
     if cache is None:
         cache = [0, 0, 1, 1] + [0] * (n - 3)
