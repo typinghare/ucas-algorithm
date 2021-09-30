@@ -20,12 +20,13 @@
 #         ans += solve(i) * solve(n - i + 1)
 #     return ans
 
+# use dict
 def solve(n, cache=None):
     if cache is None:
-        cache = [0, 0, 1, 1] + [0] * (n - 3)
+        cache = {2: 1, 3: 1}
 
     # Conquer
-    if cache[n] > 0:
+    if n in cache:
         return cache[n]
 
     # Divide and Combine
@@ -39,6 +40,28 @@ def solve(n, cache=None):
         ans += solve(mid, cache) ** 2
     cache[n] = ans
     return ans
+
+
+# use list
+# def solve(n, cache=None):
+#     if cache is None:
+#         cache = [0, 0, 1, 1] + [0] * (n - 3)
+#
+#     # Conquer
+#     if cache[n] > 0:
+#         return cache[n]
+#
+#     # Divide and Combine
+#     ans = 0
+#     mid = (n >> 1) + 1
+#     for i in range(2, mid):
+#         ans += solve(i, cache) * solve(n - i + 1, cache)
+#     ans <<= 1
+#     if n % 2 == 1:
+#         # n is odd number
+#         ans += solve(mid, cache) ** 2
+#     cache[n] = ans
+#     return ans
 
 
 # ---------- [ test ] ----------
