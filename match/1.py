@@ -16,5 +16,64 @@
 # one integer
 
 # ---------- [ code ] ----------
-def solve(a: int, b: list) -> int:
-    pass
+DIVISOR = 1337
+
+
+# If b is not a list
+def solve(a: int, b: int):
+    # 1. 求 a 的余数
+    r = a % DIVISOR
+
+    # 2. 对 b 进行二分
+    return sub(r, b)
+
+
+def sub(r: int, b: int):
+    # Conquer
+    if b == 1:
+        return r
+
+    # Divide
+    left = right = 0
+    half = b // 2
+    if b % 2 == 0:
+        # b is even number
+        left = right = sub(r, half)
+        pass
+    else:
+        # b is odd number
+        left = sub(r, half)
+        right = sub(r, half + 1)
+        pass
+
+    # Combine
+    return (left * right) % DIVISOR
+
+
+print(solve(2, 3))
+
+# def solve(a: int, b: list):
+#     # 1. 求 a 的余数
+#     r = a % DIVISOR
+#
+#     # 2. 对 b 进行二分
+#     return sub(r, b)
+
+# def sub(r: int, b: list):
+#     mi = len(b) - 1  # max index of b
+#
+#     # Conquer
+#     if b[mi - 2:] == [0, 1]:
+#         return r
+#
+#     # Divide
+#     left = right = 0
+#     if b[mi] % 2 == 0:
+#         # b is even number
+#         left = right = 0
+#         pass
+#     else:
+#         # b is odd number
+#         pass
+#
+#     # Combine
