@@ -49,10 +49,13 @@ def solve(arr, target, l, r):
         # in this case, left part contains at least one target element.
         return left if right[0] == -1 else (left[0], right[1])
 
-    # ---------- [ test ] ----------
 
-
+# ---------- [ test ] ----------
 arr = [5, 7, 7, 8, 8, 10]
-target = 8
+target = 7
 result = solve(arr, target, 0, len(arr) - 1)
 print(result)
+
+# ---------- [ correctness ] ----------
+# Loop invariant: answer = [min(left[0], right[0]), max(left[1], right[1])
+# left[0] <= starting <= right[0], left[1] <= ending <= right[1]

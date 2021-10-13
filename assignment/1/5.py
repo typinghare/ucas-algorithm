@@ -41,7 +41,6 @@ def solve(n, cache=None):
     cache[n] = ans
     return ans
 
-
 # use list
 # def solve(n, cache=None):
 #     if cache is None:
@@ -68,3 +67,6 @@ def solve(n, cache=None):
 N = 7
 result = solve(N)
 print(result)
+
+# ---------- [ correctness ] ----------
+# Loop invariant:
