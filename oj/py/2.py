@@ -13,27 +13,9 @@
 # For each target, print one line containing the starting and ending position split by spaces.
 
 # ---------- [ code ] ----------
-def solve(arr, target, l, r):
-    if r < 0:
-        return [-1, -1]
+def solve(nums, target):
 
-    # Conquer
-    if l == r:
-        # leaf node position
-        return [r, r] if arr[r] == target else [-1, -1]
-
-    # Divides
-    m = (l + r) >> 1
-    left = solve(arr, target, l, m) if arr[m] >= target else [-1, -1]
-    right = solve(arr, target, m + 1, r) if arr[m + 1] <= target else [-1, -1]
-
-    # Combine
-    if left[0] == -1:
-        # in this case, left half does not contain target element.
-        return right
-    else:
-        # in this case, left part contains at least one target element.
-        return left if right[0] == -1 else [left[0], right[1]]
+    pass
 
 
 n, m = map(int, input().split(' '))

@@ -8,9 +8,6 @@
 
 
 # ---------- [ code ] ----------
-import math
-
-
 def partition(arr: list):
     pivot = arr[0]
     les = [x for x in arr if x <= pivot]  # set consists of element that less than or equal pivot

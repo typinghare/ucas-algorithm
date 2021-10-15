@@ -4,4 +4,4 @@ project(code)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(code
-        oj/1.cpp oj/2.cpp)
+        oj/cpp/1.cpp oj/cpp/2.cpp demo/test.cpp)
