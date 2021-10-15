@@ -10,39 +10,48 @@
 # b doesn't contain leading zeros.
 # Please give an algorithm with O(logn) complexity.
 # [Input]
-# Line 1a integers
-# Line 2a array
+# Line 1: a integers
+# Line 2: a array
 # [Output]
 # one integer
 
 # ---------- [ code ] ----------
 DIVISOR = 1337
 a = int(input())
-b = list(map(int, input().split(' ')))
+line_2 = input()
+b = []
+for n in line_2[1:-1].split(','):
+    b.append(int(n.strip()))
 
 
-def solve(a: int, b: list):
-    # transfer b into an integer
-    B = 0
-    for i in range(len(b)):
-        B = B * 10 + b[i]
-
-    r = a % DIVISOR
-    return sub(r, B)
+def solve(a, b):
+    return sub(a % DIVISOR, b)
 
 
-def sub(r: int, b: int):
+def sub(r, b):
+    length = len(b)
     # conquer
-    if b == 1:
+    if length == 1 and b[0] == 1:
         return r
 
-    # divide and combine
-    if b & 1 == 1:
-        # odd number
-        return (sub(r, b // 2) ** 2 * r) % DIVISOR
+    # b /= 2
+    half = []
+    if b[0] == 1:
+        carry = 1
     else:
-        # even number
-        return sub(r, b // 2) ** 2 % DIVISOR
+        half.append(b[0] >> 1)
+        carry = b[0] & 1
+    for i in range(1, length):
+        half.append((b[i] >> 1) + carry * 5)
+        carry = b[i] & 1
+
+    # divide and combine
+    if carry == 1:
+        # odd
+        return (sub(r, half) ** 2 * r) % DIVISOR
+    else:
+        # even
+        return sub(r, half) ** 2 % DIVISOR
 
 
 print(solve(a, b))
