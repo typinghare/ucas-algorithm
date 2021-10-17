@@ -1,6 +1,9 @@
-//#include <iostream>
-//#include <vector>
-//
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 //std::vector<int> solve(std::vector<int> nums, int target) {
 //    if (nums.size() == 0) return std::vector<int>{-1, -1};
 //
@@ -37,28 +40,36 @@
 //    ending = r;
 //    return std::vector<int>{starting, ending};
 //}
-//
-////int main() {
-////    // line 1
-////    int n, m;
-////    std::cin >> n;
-////    std::cin >> m;
-////
-////    // line 2
-////    std::vector<int> nums;
-////    for (int i = 0; i < n; ++i) {
-////        int a;
-////        std::cin >> a;
-////        nums.push_back(a);
-////    }
-////
-////    // targets
-////    for (int i = 0; i < m; ++i) {
-////        int target;
-////        std::cin >> target;
-////        std::vector<int> result = solve(nums, target);
-////        std::cout << result[0] << " " << result[1] << std::endl;
-////    }
-////
-////    return 0;
-////}
+
+std::vector<int> solve(int *nums, int n, int target) {
+    int *lower = std::lower_bound(nums, nums + n, target);
+    int *upper = std::upper_bound(nums, nums + n, target);
+    return *lower == target ?
+           std::vector<int>{lower - nums, upper - nums - 1} :
+           std::vector<int>{-1, -1};
+}
+
+int main() {
+    // line 1
+    int n, m;
+    std::cin >> n;
+    std::cin >> m;
+
+    // line 2
+    int *nums = new int[n];
+    for (int i = 0; i < n; ++i) {
+        int a;
+        std::cin >> a;
+        nums[i] = a;
+    }
+
+    // targets
+    for (int i = 0; i < m; ++i) {
+        int target;
+        std::cin >> target;
+        std::vector<int> result = solve(nums, n, target);
+        std::cout << result[0] << " " << result[1] << std::endl;
+    }
+
+    return 0;
+}

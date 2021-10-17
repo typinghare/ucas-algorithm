@@ -6,12 +6,10 @@
 
 #IncludeRegexTransform: 
 
-D:/pr/code/demo/test.cpp
+D:/pr/code/oj/cpp/2.cpp
 iostream
 -
-cstdio
--
-cstring
+vector
 -
 algorithm
 -
