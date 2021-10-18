@@ -18,17 +18,16 @@ cache = {}
 # iterative method
 def money_robbing(i, selected):
     if i in cache:
-        print('hit')
         return cache[i]
 
     # recursion termination
     if i == n:
         return 0
 
-    res_select = res_skip = 0
-    # if (i - 1) and (i - 2) are included in selected simultaneously, only skip is allowed
+    res_select = 0
+    # if (i - 1) is included in selected, only skip is allowed
     # otherwise, two situations are needed to consider
-    if not ((i - 1) in selected and (i - 2) in selected):
+    if (i - 1) not in selected:
         # select
         selected.append(i)
         res_select = money_map[i] + money_robbing(i + 1, selected)
@@ -40,7 +39,7 @@ def money_robbing(i, selected):
 
     # use cache
     result = max(res_select, res_skip)
-    cache[i] = result
+    cache[i] = result  # TODO: proof correctness
     return result
 
 

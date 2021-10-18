@@ -9,7 +9,20 @@
 
 
 # ---------- [ code ] ----------
-def solve():
+def largest_divisible_subset(i, selected):
+    # recursion termination
+    if i == n:
+        return 0
+
+    # select
+    num = S[i]
+    opt = largest_divisible_subset(i + 1)
+
+    # skip
+
     pass
 
+
 # ---------- [ test ] ----------
+S = [2, 3, 4, 5, 6, 7, 8]
+n = len(S)
