@@ -1,5 +1,3 @@
-# author: ShotgunThinker
-
 class Node:
     def __init__(self, data=None):
         self.data = data  # data value
@@ -157,12 +155,26 @@ class LinkedList:
         print(buffer + ' ]')
 
 
-# TEST
-linkedList = LinkedList()
-linkedList.insert(0, 1)
-linkedList.insert(1, 3)
-linkedList.insert(2, 5)
-linkedList.insert(0, 0)
-linkedList.remove(2)
+class AdjacencyListGraph:
+    def __init__(self, vertex_number: int):
+        # vertex list
+        self.vl: list = [LinkedList() for i in range(vertex_number)]
 
-linkedList.print()
+    def add_edge(self, tail, head):
+        edge_list = self.vl[tail]
+        if not edge_list.contains(head):
+            self.vl[tail].insertLast(head)
+
+    def remove_edge(self, tail, head):
+        edge_list = self.vl[tail]
+        curr = edge_list.first
+
+        i, pos = 0, -1
+        while curr is not None:
+            if curr.data == head:
+                pos = i
+                break
+            i += 1
+            curr = curr.next
+        if pos >= 0:
+            edge_list.remove(pos)
