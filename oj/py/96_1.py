@@ -26,9 +26,8 @@ def maxAlternatingSum(nums):
     return even
 
 
-nums = [5, 1, 8, 4, 3, 20, 3, 9, 7, 2]
-print(maxAlternatingSum(nums))
-
+test_nums = [5, 1, 8, 4, 3, 20, 3, 9, 7, 2]
+print(maxAlternatingSum(test_nums))
 
 # ---------------------------------------------------------------------------------------------------
 # nums = map(int, input().split(' '))

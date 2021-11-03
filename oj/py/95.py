@@ -46,7 +46,7 @@
 # for i in range(height):
 #     triangle.append(tr[start:start + i + 1])
 #     start += i + 1
-#
+
 # # OUTPUT
 # print(minimumTotal(height, triangle))
 
