@@ -10,5 +10,7 @@
 # possible partition value over all such partitions, and the number of ways to make partition with
 # this value.
 
+# see: https://codeforces.com/problemset/problem/1326/C
+
 def permutationPartition():
     pass

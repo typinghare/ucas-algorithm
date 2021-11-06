@@ -5,5 +5,46 @@
 # minimum number of boats to carry every given person.
 # Note that it is guaranteed each person can be carried by a boat.
 
-def crossTheRiver():
-    pass
+# see: https://leetcode.com/problems/boats-to-save-people/
+from typing import List
+
+
+# [Wrong idea]
+# def crossTheRiver(people: List[int], limit: int) -> int:
+#     list.sort(people)
+#     half = (limit >> 1) + 1
+#
+#     i = len(people)
+#     ans = 0
+#     while i >= 0:
+#         i -= 1
+#         if people[i] >= half:
+#             ans += 1
+#         elif people[i] <= half - 1:
+#             break
+#         elif people[i] + people[i - 1] <= limit:
+#             ans += 1
+#             i -= 1
+#
+#     ans += (i >> 1)
+#     return ans
+
+def crossTheRiver(people: List[int], limit: int) -> int:
+    people = sorted(people)
+    people_number = len(people)
+    ans = 0  # number of rescue boats
+    i, j = 0, people_number - 1
+
+    while i <= j:
+        if people[i] + people[j] <= limit:
+            i += 1
+        ans += 1
+        j -= 1
+    return ans
+
+
+# TEST
+people = [3, 4, 6, 2, 1, 4, 5, 6, 3, 2, 4]
+# people = [3, 2, 2, 1]
+limit = 6
+print(crossTheRiver(people, limit))
