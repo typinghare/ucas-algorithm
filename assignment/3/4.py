@@ -11,6 +11,17 @@
 # this value.
 
 # see: https://codeforces.com/problemset/problem/1326/C
+from typing import List, Tuple
 
-def permutationPartition():
-    pass
+
+def permutationPartition(n: int, k: int, permutation: List[int]) -> Tuple[int, int]:
+    return 1, 2
+
+
+# Test
+permutation = [2, 2, 3, 4, 4]
+n = len(permutation)
+k = 5
+print(permutationPartition(n, k, permutation))
+
+# 【1,2], [2,4], [6,6]

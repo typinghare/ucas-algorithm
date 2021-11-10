@@ -37,14 +37,18 @@ def crossTheRiver(people: List[int], limit: int) -> int:
 
     while i <= j:
         if people[i] + people[j] <= limit:
+            # 最重 + 最轻 < L
             i += 1
-        ans += 1
-        j -= 1
+            ans += 1
+            j -= 1
+        else:
+            ans += 1
+            j -= 1
     return ans
 
 
 # TEST
-people = [3, 4, 6, 2, 1, 4, 5, 6, 3, 2, 4]
+people = [1, 2, 3, 3, 4, 4, 5, 5, 6]
 # people = [3, 2, 2, 1]
 limit = 6
 print(crossTheRiver(people, limit))

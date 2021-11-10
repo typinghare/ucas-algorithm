@@ -13,9 +13,9 @@ from typing import List
 
 def solve(piles: List[int]):
     count = len(piles)  # the number of piles
-    list.sort(piles)    # sort piles list in ascending order
-    pos = count         # the index of pile which "I" choose
-    result = 0          # sum of coins "I" have
+    list.sort(piles)  # sort piles list in ascending order
+    pos = count  # the index of pile which "I" choose
+    result = 0  # sum of coins "I" have
 
     # In each step, we choose two most piles and one least pile
     # The choice of the first few times are as follow:
