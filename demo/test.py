@@ -1,3 +1,5 @@
-li = [6, 5, 4]
-li.remove(4)
-print(li)
+n, m = 2, 3
+# switch
+n, m = m, n
+
+print(n, m)
