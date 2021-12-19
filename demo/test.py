@@ -1,5 +1,4 @@
-arr = [4, 5, 6]
+a = 4
+b = 5
 
-arr[0], arr[1] = arr[1], arr[0]
-
-print(arr)
+print(a * (b % 3))
