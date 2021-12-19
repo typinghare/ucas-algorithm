@@ -1,5 +1,5 @@
-n, m = 2, 3
-# switch
-n, m = m, n
+arr = [4, 5, 6]
 
-print(n, m)
+arr[0], arr[1] = arr[1], arr[0]
+
+print(arr)

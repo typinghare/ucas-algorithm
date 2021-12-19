@@ -27,3 +27,4 @@ def quicksort(arr: list, low: int, high: int):
 # Test
 li = [10, 80, 30, 90, 40, 50, 70]
 quicksort(li, 0, len(li) - 1)
+print(li)

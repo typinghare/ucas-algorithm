@@ -56,5 +56,9 @@ def checkValidString(s: str) -> bool:
 
 
 # TEST
-s = "(((((*(()((((*((**(((()()*)()()()*((((**)())*)*)))))))(())(()))())((*()()(((()((()*(())*(()**)()(())"
-print(checkValidString(s))  # False
+# s = "(((((*(()((((*((**(((()()*)()()()*((((**)())*)*)))))))(())(()))())((*()()(((()((()*(())*(()**)()(())"
+# print(checkValidString(s))  # False
+
+# OJ
+s = input()[:-1]
+print("True" if checkValidString(s) else "NO")
