@@ -18,7 +18,7 @@ def largest_divisible_subset(i):
 
     num = nums[i]
 
-    # judge whether or not [num] can be selected
+    # judge whether  [num] can be selected
     flag = True
     for j in selected:
         if not (num % j == 0 or j % num == 0):

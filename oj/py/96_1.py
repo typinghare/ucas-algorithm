@@ -11,8 +11,8 @@ def maxAlternatingSum(nums):
     odd, even = 0, 0
     for num in nums:
         # suppose now we have selected k numbers, which in a row: [n1, n2, ..., nk],
-        # this list serves as a subsequence we temporary make.
-        # now we are considering whether or not choose the nums[k+1]:
+        # this list serves as a subsequence we temporarily make.
+        # now we are considering whether choose the nums[k+1]:
 
         # - If k is an even number, then if we choose nums[k+1], we have to make sure that
         # the result is greater than the old <odd>, otherwise nums[k+1] will be passed,
