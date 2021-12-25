@@ -1,4 +1,4 @@
-# 迭代
+# 1. 迭代
 def solve(n):
     # n >= 2
     dp = [1, 1] + [0] * (n - 1)
@@ -10,7 +10,7 @@ def solve(n):
     return dp[n]
 
 
-# 递归
+# 2. 递归
 def solve2(n):
     if n <= 1:
         return 1
@@ -21,7 +21,7 @@ def solve2(n):
     return ret
 
 
-# 递归（带 memo，效率高）
+# 3. 递归（带 memo，效率高）
 def solve3(n, memo=None):
     if memo is None:
         memo = [1, 1] + [0] * (n - 1)
