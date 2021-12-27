@@ -92,6 +92,14 @@ $$
 h(n)=\sum_{i=0}^{n-1}{h(i)h(n-i-1)}
 $$
 
+这里注意套公式时，上述公式中的$n$为给定的多边形变数减2。
+
+正确性证明：
+
+> （1）如果n=3，即三角形，计算的结果为3，算法正确。
+>
+> （2）假设n=k时算法是正确的，现证n=k+1时算法仍然正确：
+
 ### 6. 链表合并问题
 
 [Leetcode 23: Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/)
