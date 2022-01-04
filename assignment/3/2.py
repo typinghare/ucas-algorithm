@@ -22,7 +22,7 @@ from typing import List
 def jobSchedule(p: List[int], f: List[int]):
     """
     :param f: seconds of time on the supercomputer
-    :param p: seconds of time ont PCs
+    :param p: seconds of time on the PCs
     :return: the minimum time
     """
 
