@@ -39,7 +39,25 @@ def solution2(nums):
     return c
 
 
+# 3. PPT 的意思
+def solution3(nums):
+    # c 为计数器（记录处理次数）
+    c = 0
+
+    for i in range(1, len(nums)):
+        # "计算相邻元素的差值"
+        diff = nums[i] - nums[i - 1]
+
+        # "选择其中为负的差值，相加"
+        if diff < 0:
+            c += diff
+
+    # "求反（指相反数，不是按位取反）"
+    return -c
+
+
 # test
 nums = [4, 2, 6, 3, 9]
 print(solution(nums[:]))
 print(solution2(nums[:]))
+print(solution3(nums[:]))
