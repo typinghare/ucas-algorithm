@@ -1,4 +1,6 @@
 # 0-1 Knapsack Problem
+# https://juejin.cn/post/6864812874875797518
+# https://segmentfault.com/a/1190000023763857
 
 def solution(n, w, W, V):
     """
